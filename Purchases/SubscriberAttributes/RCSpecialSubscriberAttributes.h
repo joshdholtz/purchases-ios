@@ -29,4 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 #define SPECIAL_ATTRIBUTE_KEYWORD @"$keyword"
 #define SPECIAL_ATTRIBUTE_CREATIVE @"$creative"
 
+
+@interface RCSpecialSubscriberAttributes : NSObject
+
+
++ (NSString *) specialAttributeEmail;
+
+
+@end
+
 NS_ASSUME_NONNULL_END
