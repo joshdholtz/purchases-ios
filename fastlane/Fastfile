@@ -171,6 +171,40 @@ platform :ios do
     github_release(version: version_number)
   end
 
+  lane :deploy_new do |options|
+    #ensure_git_branch(branch: 'main')
+    #ensure_git_status_clean
+
+    # Get and print current version number
+    version_number = current_version_number
+    UI.important("Current version is #{version_number}")
+
+    # Ask for new version number
+    new_version_number = UI.input("New version number: ")
+
+    # Create new branch
+    sh("git checkout -b 'release/#{new_version_number}'")
+   
+    # Open CHANGELOG.latest.md in vim 
+    current_changelog_path = File.absolute_path("../CHANGELOG.latest.md")
+    system("vim", File.absolute_path(current_changelog_path).shellescape)
+    current_changelog = File.read(current_changelog_path)
+
+    # Bump version
+    bump(version: new_version_number)
+
+    # Only add and commit update files
+    sh("git add -u")
+    sh("git commit -m 'Version bump for #{new_version_number}'")
+    push_to_git_remote
+
+    create_pull_request(
+      title: "Release/#{new_version_number}",
+      base: "main",
+      body: current_changelog
+    )
+  end
+
   desc "Prepare next version"
   lane :prepare_next_version do |options|
     old_version_number = current_version_number
