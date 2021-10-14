@@ -26,11 +26,11 @@ Setup development environment
 fastlane ios test
 ```
 Runs all the tests
-### ios bump
+### ios replace_version_number
 ```
-fastlane ios bump
+fastlane ios replace_version_number
 ```
-Increment build number
+Replace version number in project and supporting files
 ### ios bump_and_update_changelog
 ```
 fastlane ios bump_and_update_changelog
@@ -76,11 +76,11 @@ archive
 fastlane ios replace_api_key_integration_tests
 ```
 replace API KEY for integration tests
-### ios deploy
+### ios bump
 ```
-fastlane ios deploy
+fastlane ios bump
 ```
-Deploy
+Bump version, edit changelog, and create pull request
 ### ios prepare_next_version
 ```
 fastlane ios prepare_next_version
