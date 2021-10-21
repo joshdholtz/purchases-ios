@@ -15,3 +15,5 @@
 - Added setAirshipChannelID
     https://github.com/RevenueCat/purchases-ios/pull/869
     https://github.com/RevenueCat/purchases-ios/pull/877
+
+Beta 4 13 something

@@ -59,7 +59,7 @@ class SystemInfo {
     }
 
     static var frameworkVersion: String {
-        return "4.0.0-beta.4"
+        return "4.0.0-beta.13"
     }
 
     static var systemVersion: String {
