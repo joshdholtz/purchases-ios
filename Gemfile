@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem 'fastlane'
+#gem 'fastlane'
+gem 'fastlane', path: '../../fastlane/fastlane'
 gem 'cocoapods'
 gem 'jazzy'
 gem 'cocoapods-trunk'
